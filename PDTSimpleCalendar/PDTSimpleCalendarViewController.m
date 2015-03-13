@@ -588,8 +588,7 @@ static NSString *PDTSimpleCalendarViewHeaderIdentifier = @"com.producteev.collec
             {
                 // deselect
                 [self deselectAllCells];
-                [self setSelectedDate:date selectedEndDate:nil];
-                [self.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+                [self setSelectedDate:nil selectedEndDate:nil];
             }
         }
         else
