@@ -70,14 +70,14 @@
 
 
     //Example of how you can now customize the calendar colors
-//    [[PDTSimpleCalendarViewCell appearance] setCircleDefaultColor:[UIColor whiteColor]];
-//    [[PDTSimpleCalendarViewCell appearance] setCircleSelectedColor:[UIColor orangeColor]];
+    [[PDTSimpleCalendarViewCell appearance] setCircleDefaultColor:[UIColor clearColor]];
+    [[PDTSimpleCalendarViewCell appearance] setCircleSelectedColor:[UIColor colorWithRed:0 green:187.0f/255.0f blue:204.0f/255.0f alpha:1.0f]];
 //    [[PDTSimpleCalendarViewCell appearance] setCircleTodayColor:[UIColor blueColor]];
 //    [[PDTSimpleCalendarViewCell appearance] setTextDefaultColor:[UIColor redColor]];
 //    [[PDTSimpleCalendarViewCell appearance] setTextSelectedColor:[UIColor purpleColor]];
 //    [[PDTSimpleCalendarViewCell appearance] setTextTodayColor:[UIColor magentaColor]];
 //    [[PDTSimpleCalendarViewCell appearance] setTextDisabledColor:[UIColor purpleColor]];
-//    [[PDTSimpleCalendarViewCell appearance] setTextDefaultFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:12.0]];
+    [[PDTSimpleCalendarViewCell appearance] setTextDefaultFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:12.0]];
 //
 //    [[PDTSimpleCalendarViewHeader appearance] setTextColor:[UIColor redColor]];
 //    [[PDTSimpleCalendarViewHeader appearance] setSeparatorColor:[UIColor orangeColor]];
