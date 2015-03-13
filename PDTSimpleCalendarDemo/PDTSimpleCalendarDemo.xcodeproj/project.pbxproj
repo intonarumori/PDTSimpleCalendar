@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7638C0F21AB31AEB00CBB84F /* PDTCalendarSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7638C0F11AB31AEB00CBB84F /* PDTCalendarSelectionView.m */; };
+		7638C0F61AB32FDD00CBB84F /* CalendarSelection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7638C0F51AB32FDD00CBB84F /* CalendarSelection@2x.png */; };
 		89594315180CB350007DEC5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89594314180CB350007DEC5D /* Foundation.framework */; };
 		89594317180CB350007DEC5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89594316180CB350007DEC5D /* CoreGraphics.framework */; };
 		89594319180CB350007DEC5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89594318180CB350007DEC5D /* UIKit.framework */; };
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7638C0F01AB31AEB00CBB84F /* PDTCalendarSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDTCalendarSelectionView.h; sourceTree = "<group>"; };
+		7638C0F11AB31AEB00CBB84F /* PDTCalendarSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDTCalendarSelectionView.m; sourceTree = "<group>"; };
+		7638C0F51AB32FDD00CBB84F /* CalendarSelection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarSelection@2x.png"; sourceTree = "<group>"; };
 		89594311180CB350007DEC5D /* PDTSimpleCalendarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDTSimpleCalendarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89594314180CB350007DEC5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		89594316180CB350007DEC5D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -143,6 +148,7 @@
 		89594343180CB46B007DEC5D /* PDTSimpleCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				7638C0F51AB32FDD00CBB84F /* CalendarSelection@2x.png */,
 				89D411BF18109DA1001584CC /* PDTSimpleCalendar.h */,
 				89594348180CB47B007DEC5D /* PDTSimpleCalendarViewController.h */,
 				89594349180CB47B007DEC5D /* PDTSimpleCalendarViewController.m */,
@@ -152,6 +158,8 @@
 				89594347180CB47B007DEC5D /* PDTSimpleCalendarViewCell.m */,
 				8959434A180CB47B007DEC5D /* PDTSimpleCalendarViewFlowLayout.h */,
 				8959434B180CB47B007DEC5D /* PDTSimpleCalendarViewFlowLayout.m */,
+				7638C0F01AB31AEB00CBB84F /* PDTCalendarSelectionView.h */,
+				7638C0F11AB31AEB00CBB84F /* PDTCalendarSelectionView.m */,
 			);
 			name = PDTSimpleCalendar;
 			sourceTree = "<group>";
@@ -254,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8959431F180CB350007DEC5D /* InfoPlist.strings in Resources */,
+				7638C0F61AB32FDD00CBB84F /* CalendarSelection@2x.png in Resources */,
 				89594327180CB350007DEC5D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8959434E180CB47B007DEC5D /* PDTSimpleCalendarViewController.m in Sources */,
+				7638C0F21AB31AEB00CBB84F /* PDTCalendarSelectionView.m in Sources */,
 				89594321180CB350007DEC5D /* main.m in Sources */,
 				8959434F180CB47B007DEC5D /* PDTSimpleCalendarViewFlowLayout.m in Sources */,
 				89594325180CB350007DEC5D /* PDTAppDelegate.m in Sources */,
