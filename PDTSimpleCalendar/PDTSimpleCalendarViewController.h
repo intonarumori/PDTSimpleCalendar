@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol PDTSimpleCalendarViewSelection <NSObject>
+
+- (void)setSelectionFrames:(NSArray *)frames;
+
+@end
+
+
 @protocol PDTSimpleCalendarViewDelegate;
 
 /**
@@ -42,6 +50,9 @@
  */
 @property (nonatomic, strong) NSDate *selectedDate;
 
+
+@property (nonatomic, strong) NSDate *selectedEndDate;
+
 /** @name Customizing Appearance */
 
 /**
@@ -55,6 +66,8 @@
 @property (nonatomic, strong) UIColor *overlayTextColor;
 
 
+@property (nonatomic) BOOL allowsMultipleSelection;
+
 
 /** @name Getting Notified of changes */
 
@@ -65,6 +78,7 @@
  *  @see PDTSimpleCalendarViewDelegate
  */
 @property (nonatomic, weak) id<PDTSimpleCalendarViewDelegate> delegate;
+@property (nonatomic, retain) UIView<PDTSimpleCalendarViewSelection> *selectionView;
 
 
 /**
