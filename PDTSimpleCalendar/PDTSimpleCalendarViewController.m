@@ -229,18 +229,50 @@ static NSString *PDTSimpleCalendarViewHeaderIdentifier = @"com.producteev.collec
     [self updateSelection];
 }
 
-- (void)setSelectedDate:(NSDate *)selectedDate
+- (void)setSelectedDate:(NSDate *)newSelectedDate
 {
-    _selectedDate = selectedDate;
+    NSDate *startOfDay = [self startOfDayForDate:newSelectedDate];
+    
+    if(![self isDateInAllowedDateRange:startOfDay])
+    {
+        //the newSelectedDate is not between first & last date of the calendar, do nothing.
+        return;
+    }
+    
+    _selectedDate = startOfDay;
     
     [self updateSelection];
+    
+//    NSIndexPath *indexPath = [self indexPathForCellAtDate:_selectedDate];
+//    [self.collectionView reloadItemsAtIndexPaths:@[ indexPath ]];
+    
+    //Notify the delegate
+    if ([self.delegate respondsToSelector:@selector(simpleCalendarViewController:didSelectDate:)]) {
+        [self.delegate simpleCalendarViewController:self didSelectDate:self.selectedDate];
+    }
 }
 
 - (void)setSelectedEndDate:(NSDate *)selectedEndDate
 {
+    NSDate *startOfDay = [self startOfDayForDate:selectedEndDate];
+    
+    if(![self isDateInAllowedDateRange:startOfDay])
+    {
+        //the newSelectedDate is not between first & last date of the calendar, do nothing.
+        return;
+    }
+
     _selectedEndDate = selectedEndDate;
     
     [self updateSelection];
+
+//    NSIndexPath *indexPath = [self indexPathForCellAtDate:_selectedEndDate];
+//    [self.collectionView reloadItemsAtIndexPaths:@[ indexPath ]];
+    
+    //Notify the delegate
+    if ([self.delegate respondsToSelector:@selector(simpleCalendarViewController:didSelectEndDate:)]) {
+        [self.delegate simpleCalendarViewController:self didSelectEndDate:self.selectedEndDate];
+    }
 }
 
 #pragma mark - update selection
@@ -361,39 +393,21 @@ static NSString *PDTSimpleCalendarViewHeaderIdentifier = @"com.producteev.collec
 }
 
 
-/*
-
-- (void)setSelectedDate:(NSDate *)newSelectedDate
+- (NSDate *)startOfDayForDate:(NSDate *)date
 {
-    //if newSelectedDate is nil, unselect the current selected cell
-    if (!newSelectedDate) {
-        [[self cellForItemAtDate:_selectedDate] setSelected:NO];
-        _selectedDate = newSelectedDate;
+    return [self clampDate:date toComponents:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit];
+}
 
-        return;
-    }
-
+- (BOOL)isDateInAllowedDateRange:(NSDate *)date
+{
     //Test if selectedDate between first & last date
-    NSDate *startOfDay = [self clampDate:newSelectedDate toComponents:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit];
+    NSDate *startOfDay = [self clampDate:date toComponents:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit];
     if (([startOfDay compare:self.firstDateMonth] == NSOrderedAscending) || ([startOfDay compare:self.lastDateMonth] == NSOrderedDescending)) {
         //the newSelectedDate is not between first & last date of the calendar, do nothing.
-        return;
+        return NO;
     }
-
-
-    [[self cellForItemAtDate:_selectedDate] setSelected:NO];
-    [[self cellForItemAtDate:startOfDay] setSelected:YES];
-
-    _selectedDate = startOfDay;
-
-    NSIndexPath *indexPath = [self indexPathForCellAtDate:_selectedDate];
-    [self.collectionView reloadItemsAtIndexPaths:@[ indexPath ]];
-
-    //Notify the delegate
-    if ([self.delegate respondsToSelector:@selector(simpleCalendarViewController:didSelectDate:)]) {
-        [self.delegate simpleCalendarViewController:self didSelectDate:self.selectedDate];
-    }
-}*/
+    return YES;
+}
 
 //Deprecated, You need to use setSelectedDate: and call scrollToDate:animated: or scrollToSelectedDate:animated:
 //TODO: Remove this in next release

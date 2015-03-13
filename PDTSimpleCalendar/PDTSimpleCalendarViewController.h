@@ -133,6 +133,11 @@
  */
 - (void)simpleCalendarViewController:(PDTSimpleCalendarViewController *)controller didSelectDate:(NSDate *)date;
 
+
+
+- (void)simpleCalendarViewController:(PDTSimpleCalendarViewController *)controller didSelectEndDate:(NSDate *)date;
+
+
 /** @name Color Customization */
 
 /**
