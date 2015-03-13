@@ -70,13 +70,15 @@ const CGFloat PDTSimpleCalendarCircleSize = 32.0f;
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        _enabled = YES;
         _date = nil;
         _isToday = NO;
         _dayLabel = [[UILabel alloc] init];
         [self.dayLabel setFont:[self textDefaultFont]];
         [self.dayLabel setTextAlignment:NSTextAlignmentCenter];
         [self.contentView addSubview:self.dayLabel];
-
+        
         //Add the Constraints
         [self.dayLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
         [self.dayLabel setBackgroundColor:[UIColor clearColor]];
@@ -94,10 +96,18 @@ const CGFloat PDTSimpleCalendarCircleSize = 32.0f;
     return self;
 }
 
+
+- (void)setEnabled:(BOOL)enabled
+{
+    _enabled = enabled;
+    [self setCircleColor:self.isToday selected:self.selected];
+}
+
 - (void)setDate:(NSDate *)date calendar:(NSCalendar *)calendar
 {
     NSString* day = @"";
     NSString* accessibilityDay = @"";
+    
     if (date && calendar) {
         _date = date;
         day = [PDTSimpleCalendarViewCell formatDate:date withCalendar:calendar];
@@ -141,6 +151,11 @@ const CGFloat PDTSimpleCalendarCircleSize = 32.0f;
     if (selected) {
         circleColor = [self circleSelectedColor];
         labelColor = [self textSelectedColor];
+    }
+    
+    if(!self.enabled)
+    {
+        labelColor = [UIColor lightGrayColor];
     }
 
     [self.dayLabel setBackgroundColor:circleColor];

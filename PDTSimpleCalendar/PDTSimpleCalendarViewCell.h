@@ -109,6 +109,10 @@
  */
 @property (nonatomic, strong) UIFont *textDefaultFont UI_APPEARANCE_SELECTOR;
 
+
+@property (nonatomic, assign) BOOL enabled;
+
+
 /**
  * Set the date for this cell
  *
